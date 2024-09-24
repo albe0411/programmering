@@ -97,8 +97,56 @@ def remove_letters():
 
     print(letters)
 
+x = 0
+y = 0
+def additon(x, y): 
+    return(x + y)
+def subtraction(x , y):
+    return(x - y)
+def multiplicaton(x, y):
+    return(x * y)
+def division(x, y):
+    return(x / y)
 
-question = input("pick a program (v, pr, n, m, pa, r, oen, rl): ").lower()
+def calculator():
+    while True:
+        
+        print()
+        print("welcome to the calculator")
+        numbers_calculator_1 = int(input("Write a number: "))
+        numbers_calculator_2 = int(input("Write an other number: "))
+
+        question_calculator = input("what do you want to do (add, subtract, multiply, divide): ").lower()
+        if question_calculator == "add":
+            result = additon(numbers_calculator_1, numbers_calculator_2)
+        elif question_calculator == "subtract":
+            result = subtraction(numbers_calculator_1, numbers_calculator_2)
+        elif question_calculator == "multiply":
+            result = multiplicaton(numbers_calculator_1, numbers_calculator_2)
+        elif question_calculator == "divide":
+            result = division(numbers_calculator_1, numbers_calculator_2)
+        else:
+            print("unvalid input")
+
+        print(result)
+
+def magic_8ball():
+    yes = ["yes", "yeess"]
+    maybe = ["maybe", "idk"]
+    no = ["no", "nooooo"]
+    answer_types = [yes, maybe, no]
+
+    answer_type = random.choice(answer_types)
+    answer = random.choice(answer_type)
+
+    print()
+    print("the answer is: " + answer)
+    print()
+
+    
+
+print()
+question = input("pick a program (v, pr, n, m, pa, r, oen, rl, c, mb): ").lower()
 
 if question == "v":
     vowels()
@@ -116,3 +164,9 @@ elif question == "oen":
     odd_even_numbers()
 elif question == "rl":
     remove_letters()
+elif question == "c":
+    calculator()
+elif question == "mb":
+    magic_8ball()
+else:
+    print("unvalid input")
