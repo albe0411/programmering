@@ -192,8 +192,29 @@ def rock_paper_scissors():
     elif computer_score == 3:
         print("computer won big")
 
+def compare_sum_of_numbers():
+    sum1 = 0
+    sum2 = 0
+
+    print()
+    number1 = input("write a number: ")
+    number2 = input("write an other number: ")
+
+    for i in str(number1): #changes the number to a string to be able to loop through it like a list
+        sum1 += int(i) #adds all the numbers together
+    for i in str(number2):
+        sum2 += int(i)
+
+    print()
+
+    if sum1 == sum2: #compares the numbers
+        print(str(sum1) + " = " + str(sum2))
+    else:
+        print(str(sum1) + " ≠ " + str(sum2))
+    print()
+
 print()
-question = input("pick a program (v, pr, n, m, pa, r, oen, rl, c, mb, rps): ").lower()
+question = input("pick a program (v, pr, n, m, pa, r, oen, rl, c, mb, rps, cson): ").lower()
 
 if question == "v":
     vowels()
@@ -217,5 +238,7 @@ elif question == "mb":
     magic_8ball()
 elif question == "rps":
     rock_paper_scissors()
+elif question == "cson":
+    compare_sum_of_numbers()
 else:
     print("invalid input")
