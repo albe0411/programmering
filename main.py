@@ -213,8 +213,39 @@ def compare_sum_of_numbers():
         print(str(sum1) + " ≠ " + str(sum2))
     print()
 
+def number_guess():
+    random_number = random.randint(1, 100)
+    guess_counter = 0
+    print()
+
+    while True:
+        while True:
+            user_guess = input("guess a number: ")
+            try:
+                user_guess = int(user_guess)
+                break
+            except:
+                print("invalid input")
+
+        if user_guess < random_number:
+            print("the number is bigger")
+            print()
+            guess_counter += 1
+        elif user_guess > random_number:
+            print("the number is smaller")
+            print()
+            guess_counter += 1
+        elif user_guess == random_number:
+            print("you guessed right!")
+            print("number of gusses: " + str(guess_counter))
+            print()
+            break
+
+
+
+
 print()
-question = input("pick a program (v, pr, n, m, pa, r, oen, rl, c, mb, rps, cson): ").lower()
+question = input("pick a program (v, pr, n, m, pa, r, oen, rl, c, mb, rps, cson, ng): ").lower()
 
 if question == "v":
     vowels()
@@ -240,5 +271,7 @@ elif question == "rps":
     rock_paper_scissors()
 elif question == "cson":
     compare_sum_of_numbers()
+elif question == "ng":
+    number_guess()
 else:
     print("invalid input")
