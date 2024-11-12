@@ -345,6 +345,20 @@ def mc_sales():
 
 
 
+letters = {}
+
+sentence = str(input("input sentence: ").lower())
+
+for i in range(len(sentence)):
+    if sentence[i] in letters:
+        letters[sentence[i]] += 1
+    else:
+        letters[sentence[i]] = 1
+
+for x in letters:
+    print(str(x) + ": " + str(letters[x]))
+
+
 print()
 question = input("pick a program (v, pr, n, m, pa, r, oen, rl, c, mb, rps, cson, ng, eb, mc): ").lower()
 
