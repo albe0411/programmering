@@ -17,7 +17,7 @@ def vowels():
             if word_input[i] == vowels[y]:
                 x += 1
         i +=1
-    print(word_input + "contains" + x + "vowels")
+    print(str(word_input) + " contains " + str(x) + " vowels")
 
 def prefectures():
     prefectures = ["hokkaido", "aomori", "akita", "iwate", "yamagata", "miyagi", "fukushima", "tochigi", "gunma", "ibaraki", "saitama", "chiba", "tokyo", "kanagawa", "nigata", "toyama", "ishikawa", "fukui", "gifu", "nagano", "yamanashi", "aichi", "shizouka", "shiga", "kyoto", "mie", "nara", "hyogo", "osaka", "wakayama", "tottori", "okayama", "shimane", "hiroshima", "yamaguchi", "kagawa", "tokushima", "ehime", "kochi", "fukuoka", "saga", "nagasaki", "oita", "kumamoto", "miyazaki", "kagoshima", "okinawa"]
@@ -26,7 +26,7 @@ def prefectures():
     print("there are " + str(len(prefectures)) + " prefectures in Japan")
     print()
     for x in prefectures:
-        print(x + " is " + str(len(x)) + " letters long")
+        print(str(x) + " is " + str(len(x)) + " letters long")
         print()
 
 def numbers():
@@ -145,7 +145,7 @@ def magic_8ball():
     answer = random.choice(answer_type)
 
     print()
-    print("the answer is: " + answer)
+    print("the answer is: " + str(answer))
     print()
 
 def rock_paper_scissors():
@@ -343,54 +343,55 @@ def mc_sales():
     plt.plot(xpoints, ypoints, marker = 'o')
     plt.show()
 
+def letter_count():
+    letters = {}
 
+    sentence = str(input("input sentence: ").lower())
 
-letters = {}
+    for i in range(len(sentence)):
+        if sentence[i] in letters:
+            letters[sentence[i]] += 1
+        else:
+            letters[sentence[i]] = 1
 
-sentence = str(input("input sentence: ").lower())
-
-for i in range(len(sentence)):
-    if sentence[i] in letters:
-        letters[sentence[i]] += 1
-    else:
-        letters[sentence[i]] = 1
-
-for x in letters:
-    print(str(x) + ": " + str(letters[x]))
-
+    for x in letters:
+        print(str(x) + ": " + str(letters[x]))
 
 print()
-question = input("pick a program (v, pr, n, m, pa, r, oen, rl, c, mb, rps, cson, ng, eb, mc): ").lower()
+question = input("pick a program (v, pr, n, m, pa, r, oen, rl, c, mb, rps, cson, ng, eb, mc, lc): ").lower()
 
-if question == "v":
-    vowels()
-elif question == "pr":
-    prefectures()
-elif question == "n":
-    numbers()
-elif question == "m":
-    math()
-elif question == "pa":
-    palendrom()
-elif question == "r":
-    random_generator()
-elif question == "oen":
-    odd_even_numbers()
-elif question == "rl":
-    remove_letters()
-elif question == "c":
-    calculator()
-elif question == "mb":
-    magic_8ball()
-elif question == "rps":
-    rock_paper_scissors()
-elif question == "cson":
-    compare_sum_of_numbers()
-elif question == "ng":
-    number_guess()
-elif question == "eb":
-    electricity_bill()
-elif question == "mc":
-    mc_sales()
-else:
-    print("invalid input")
+match question:
+    case "v":
+        vowels()
+    case "pr":
+        prefectures()
+    case "n":
+        numbers()
+    case "m":
+        math()
+    case "pa":
+        palendrom()
+    case "r":
+        random_generator()
+    case "oen":
+        odd_even_numbers()
+    case "rl":
+        remove_letters()
+    case "c":
+        calculator()
+    case "mb":
+        magic_8ball()
+    case "rps":
+        rock_paper_scissors()
+    case "cson":
+        compare_sum_of_numbers()
+    case "ng":
+        number_guess()
+    case "eb":
+        electricity_bill()
+    case "mc":
+        mc_sales()
+    case "lc":
+        letter_count()
+    case _:
+        print("invalid input")
